@@ -27,10 +27,20 @@ struct EmojiMemoryGameView: View {
             .padding(.horizontal)
             .foregroundColor(.red)
         }else{
-            Text("You have won! 🥳🎉")
-                .font(.title)
-                .foregroundColor(.red)
-                .fontWeight(.bold)
+            VStack{
+                Text("You have won! 🥳🎉")
+                    .font(.title)
+                    .foregroundColor(.red)
+                    .fontWeight(.bold)
+                Button(action: {
+                    game.playAgain()
+                }, label: {
+                    ZStack {
+                        Text("Play Again!").zIndex(1).foregroundColor(.white).font(.system(size: 20))
+                        RoundedRectangle(cornerRadius: 15).fill(.red).frame(width: 125, height: 45)
+                    }
+                })
+            }
         }
     }
 }

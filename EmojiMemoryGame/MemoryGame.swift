@@ -9,7 +9,7 @@
 import Foundation
 
 struct MemoryGame<CardContent> where CardContent: Equatable {
-    var cards: Array<Card>
+    var cards: Array<Card> = []
     
     private var indexOfTheOneAndOnlyFaceCardUp : Int? {
         get { cards.indices.filter({ cards[$0].isFaceUp }).oneAndOnly }
@@ -36,7 +36,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     
     
     init(numberOfPairsOfCards: Int, createCardContent: (Int) -> CardContent) {
-        cards = []
+        cards.removeAll()
         for pairIndex in 0..<numberOfPairsOfCards {
             let content: CardContent = createCardContent(pairIndex)
             cards.append(Card(id: pairIndex*2, content: content))

@@ -73,7 +73,6 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
-      customArchiveName = "Emoji Memory Game"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
