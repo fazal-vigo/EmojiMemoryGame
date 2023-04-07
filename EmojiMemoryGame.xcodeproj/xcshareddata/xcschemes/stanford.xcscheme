@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0B5FF53B29473F9E00E3D331"
-               BuildableName = "Emoji Memory Game.app"
-               BlueprintName = "Emoji Memory Game"
-               ReferencedContainer = "container:Emoji Memory Game.xcodeproj">
+               BuildableName = "EmojiMemoryGame.app"
+               BlueprintName = "EmojiMemoryGame"
+               ReferencedContainer = "container:EmojiMemoryGame.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0B5FF53B29473F9E00E3D331"
-            BuildableName = "Emoji Memory Game.app"
-            BlueprintName = "Emoji Memory Game"
-            ReferencedContainer = "container:Emoji Memory Game.xcodeproj">
+            BuildableName = "EmojiMemoryGame.app"
+            BlueprintName = "EmojiMemoryGame"
+            ReferencedContainer = "container:EmojiMemoryGame.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0B5FF53B29473F9E00E3D331"
-            BuildableName = "Emoji Memory Game.app"
-            BlueprintName = "Emoji Memory Game"
-            ReferencedContainer = "container:Emoji Memory Game.xcodeproj">
+            BuildableName = "EmojiMemoryGame.app"
+            BlueprintName = "EmojiMemoryGame"
+            ReferencedContainer = "container:EmojiMemoryGame.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
