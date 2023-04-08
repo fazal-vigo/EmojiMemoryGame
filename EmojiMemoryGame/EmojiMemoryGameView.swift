@@ -12,33 +12,37 @@ struct EmojiMemoryGameView: View {
     @ObservedObject var game: EmojiMemoryGame
     
     var body: some View {
-        if !game.isCompleted {
-            ScrollView {
-                LazyVGrid (columns: [GridItem(.adaptive(minimum: 100))]) {
-                    ForEach(game.cards) { card in
-                        CardView(card: card)
-                            .aspectRatio(2/3, contentMode: .fit)
-                            .onTapGesture {
-                                game.chooseCards(card)
-                            }
+        VStack{
+            if !game.isCompleted {
+                ScrollView {
+                    LazyVGrid (columns: [GridItem(.adaptive(minimum: 100))]) {
+                        ForEach(game.cards) { card in
+                            CardView(card: card)
+                                .aspectRatio(2/3, contentMode: .fit)
+                                .onTapGesture {
+                                    game.chooseCards(card)
+                                }
+                        }
                     }
                 }
+                .padding(.horizontal)
+                .foregroundColor(.red)
+            }else{
+                VStack{
+                    Text("You have won! 🥳🎉")
+                        .font(.title)
+                        .foregroundColor(.red)
+                        .fontWeight(.bold)
+                    Button(action: {
+                        game.play()
+                    }, label: {
+                        ButtonView(buttonText: "Play Again!")
+                    })
+                }
             }
-            .padding(.horizontal)
-            .foregroundColor(.red)
-        }else{
-            VStack{
-                Text("You have won! 🥳🎉")
-                    .font(.title)
-                    .foregroundColor(.red)
-                    .fontWeight(.bold)
-                Button(action: {
-                    game.playAgain()
-                }, label: {
-                    ButtonView(buttonText: "Play Again!")
-                })
-            }
-        }
+        }.onAppear(perform: {
+            game.play()
+        })
     }
 }
 
@@ -50,11 +54,11 @@ struct CardView : View {
         GeometryReader(content: { geometry in
             ZStack {
                 if card.isFaceUp {
-                    shape.fill(.white)
                     shape.strokeBorder(lineWidth: DrawingConstants.linWidth)
                     Text(card.content).font(font(in: geometry.size))
                 } else if card.isMatched {
-                    shape.opacity(0)
+                    shape.strokeBorder(lineWidth: DrawingConstants.linWidth)
+                    Text("Matched")
                 }
                 else {
                     shape.foregroundColor(.red)
