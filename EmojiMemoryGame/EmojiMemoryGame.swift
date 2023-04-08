@@ -10,10 +10,12 @@ import Foundation
 
 class EmojiMemoryGame: ObservableObject {
     typealias Card = MemoryGame<String>.Card
+    private static let level = [8,16,24]
+    private static var selected = 0
     private static let emojis = ["🤣", "😍", "😎", "😜", "🥰", "😇", "🤓", "😤", "🤭", "🫡", "🫠", "🤤", "😴", "😱", "🤨", "🤯", "🤬", "😕", "😉", "🙃", "😂", "🥹", "🤑", "🥱"]
     
     private static func createMemoryGame() -> MemoryGame<String> {
-        MemoryGame<String>(numberOfPairsOfCards: emojis.count) { pairIndex in
+        MemoryGame<String>(numberOfPairsOfCards: level[selected]) { pairIndex in
             emojis[pairIndex]
         }
     }
@@ -40,6 +42,11 @@ class EmojiMemoryGame: ObservableObject {
     }
     
     func playAgain() {
+        model = EmojiMemoryGame.createMemoryGame()
+    }
+    
+    func selectLevel(_ level: Int){
+        EmojiMemoryGame.selected = level
         model = EmojiMemoryGame.createMemoryGame()
     }
 }

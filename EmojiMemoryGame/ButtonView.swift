@@ -9,15 +9,18 @@ import SwiftUI
 
 struct ButtonView: View {
     @State var buttonText : String
-    @State var selected : Bool = true
+    var selected : Bool = true
     var body: some View{
         VStack {
-            Text(buttonText).foregroundColor(.white).font(.system(size: 20)).padding()
-        }.background(Color.red).cornerRadius(20).fixedSize()
+            Text(buttonText).foregroundColor(selected ? .white : .red)
+                .font(.system(size: 20)).padding(.horizontal, 20).padding(.vertical, 10)
+        }.background(selected ? Color.red:Color.clear)
+        .cornerRadius(30)
+        .background(RoundedRectangle(cornerRadius: 20).strokeBorder(lineWidth: 1).foregroundColor(.red))
     }
 }
 struct ButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonView(buttonText: "Preview sfjsdjdskj")
+        ButtonView(buttonText: "Preview")
     }
 }
