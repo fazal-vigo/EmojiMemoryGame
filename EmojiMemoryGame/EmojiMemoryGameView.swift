@@ -35,10 +35,7 @@ struct EmojiMemoryGameView: View {
                 Button(action: {
                     game.playAgain()
                 }, label: {
-                    ZStack {
-                        Text("Play Again!").zIndex(1).foregroundColor(.white).font(.system(size: 20))
-                        RoundedRectangle(cornerRadius: 15).fill(.red).frame(width: 125, height: 45)
-                    }
+                    ButtonView(buttonText: "Play Again!")
                 })
             }
         }
